@@ -24,6 +24,8 @@ df_test = pd.read_parquet("/Users/louisleibovici/Documents/VS_Code/Bike_counters
 
 ###### JOUR FERIE ######
 
+# https://www.data.gouv.fr/fr/datasets/jours-feries-en-france/
+
 # Add jour ferie data
 jour_feries = (
     pd.read_csv(
@@ -44,6 +46,8 @@ jour_feries = jour_feries[
 ]
 
 ###### MOUVEMENTS SOCIAUX ######
+
+# https://ressources.data.sncf.com/explore/dataset/mouvements-sociaux-depuis-2002/export/?sort=date_de_debut
 
 #With the same way, we add mouvements sociaux data :
 mouvements_sociaux = (
@@ -98,6 +102,8 @@ df_train = _encode_dates(df_train)
 df_test = _encode_dates(df_test)
 
 ###### ARRONDISSEMENT FEATURE ######
+
+# https://opendata.paris.fr/explore/dataset/arrondissements/export/?disjunctive.c_ar&disjunctive.c_arinsee&disjunctive.l_ar
 
 # To add an "arrondissement" feature based on latitute and longitude
 # def arrondissement(X, shapefile_path="/Users/srazman/Python/bike_counters/external_data/arrondissements.shp"):
