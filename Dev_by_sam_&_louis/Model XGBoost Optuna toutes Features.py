@@ -31,6 +31,8 @@ df_test = pd.read_parquet("/Users/louisleibovici/Documents/VS_Code/Bike_counters
 
 ############## weather ##############
 
+# https://meteo.data.gouv.fr/datasets/donnees-climatologiques-de-base-horaires/
+
 # Add external data : weather data
 weather = pd.read_csv(
     "/Users/louisleibovici/Documents/VS_Code/Bike_counters DSB Project/bike_counters/external_data/weather_data.csv.gz",
@@ -74,6 +76,8 @@ df_test = df_test.merge(weather_reduced, left_on="date", right_on="date", how="l
 
 ############## jour_feries ##############
 
+# https://www.data.gouv.fr/fr/datasets/jours-feries-en-france/
+
 # Add jour ferie External data
 jour_feries = (
     pd.read_csv(
@@ -95,6 +99,8 @@ jour_feries = jour_feries[
 
 
 ############## mouvements_sociaux ##############
+
+# https://ressources.data.sncf.com/explore/dataset/mouvements-sociaux-depuis-2002/export/?sort=date_de_debut
 
 #Add mouvements sociaux data :
 mouvements_sociaux = (
@@ -176,8 +182,10 @@ df_test = _encode_dates(df_test)
 
 
 #######################################
-# 2. Encode Arrondissement 
+# 2. Encode Arrondissement
 #######################################
+
+# https://opendata.paris.fr/explore/dataset/arrondissements/export/?disjunctive.c_ar&disjunctive.c_arinsee&disjunctive.l_ar 
 
 # To add an "arrondissement" feature based on latitute ande longitude
 def arrondissement(X, shapefile_path="/Users/louisleibovici/Documents/VS_Code/Bike_counters DSB Project/bike_counters/external_data/arrondissements.shp"):
@@ -364,7 +372,7 @@ print("Best RMSE:", study.best_value)
 
 
 # #######################################
-# # Prediction and creation of csv file 
+# # Prediction and creation of csv file
 # #######################################
 
 # Train the final model with the best parameters on the full dataset
